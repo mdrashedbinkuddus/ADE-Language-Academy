@@ -42,51 +42,51 @@ abstract class FlutterFlowTheme {
   Color lineColor;
 
   TextStyle get title1 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.bold,
         fontSize: 24,
       );
   TextStyle get title2 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: secondaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 22,
       );
   TextStyle get title3 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 20,
       );
   TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 18,
       );
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: secondaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         fontSize: 16,
       );
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: primaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       );
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Poppins',
+        'Roboto',
         color: secondaryText,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.normal,
         fontSize: 14,
       );
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  Color primaryColor = const Color(0xFF4B39EF);
+  Color primaryColor = const Color(0xFF052948);
   Color secondaryColor = const Color(0xFF39D2C0);
   Color tertiaryColor = const Color(0xFFEE8B60);
   Color alternate = const Color(0xFFFF5963);

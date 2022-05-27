@@ -804,7 +804,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.end,
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1067,13 +1067,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  50, 30, 50, 0),
+                                                  0, 30, 0, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.end,
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional

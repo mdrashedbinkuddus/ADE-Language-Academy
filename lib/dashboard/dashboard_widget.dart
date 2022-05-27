@@ -1,6 +1,8 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login_page/login_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,31 +20,33 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Color(0xFF052948),
-        automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            scaffoldKey.currentState.openDrawer();
-          },
-          child: Icon(
-            Icons.menu_rounded,
-            color: FlutterFlowTheme.of(context).primaryBtnText,
-            size: 26,
-          ),
-        ),
-        title: Text(
-          'Dashboaed',
-          style: FlutterFlowTheme.of(context).title3.override(
-                fontFamily: 'Poppins',
-                color: FlutterFlowTheme.of(context).primaryBtnText,
-                fontWeight: FontWeight.w500,
+      appBar: isAndroid
+          ? AppBar(
+              backgroundColor: Color(0xFF052948),
+              automaticallyImplyLeading: false,
+              leading: InkWell(
+                onTap: () async {
+                  scaffoldKey.currentState.openDrawer();
+                },
+                child: Icon(
+                  Icons.menu_rounded,
+                  color: FlutterFlowTheme.of(context).primaryBtnText,
+                  size: 26,
+                ),
               ),
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 0,
-      ),
+              title: Text(
+                'Dashboaed',
+                style: FlutterFlowTheme.of(context).title3.override(
+                      fontFamily: 'Poppins',
+                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+              actions: [],
+              centerTitle: false,
+              elevation: 0,
+            )
+          : null,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       drawer: Container(
         width: MediaQuery.of(context).size.width * 0.8,
@@ -92,8 +96,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 ),
                 Spacer(),
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await signOut();
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPageWidget(),
+                      ),
+                      (r) => false,
+                    );
                   },
                   text: 'Logout',
                   options: FFButtonOptions(

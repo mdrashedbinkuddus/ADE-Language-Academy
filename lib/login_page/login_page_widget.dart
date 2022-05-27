@@ -15,12 +15,12 @@ class LoginPageWidget extends StatefulWidget {
 }
 
 class _LoginPageWidgetState extends State<LoginPageWidget> {
-  TextEditingController adminLoginEmailController1;
+  TextEditingController adminLoginEmailController;
   TextEditingController adminLoginPasswordController;
   bool adminLoginPasswordVisibility;
-  TextEditingController adminLoginEmailController2;
-  TextEditingController adminLoginEmailController3;
-  bool adminLoginEmailVisibility;
+  TextEditingController teacherLoginEmailController;
+  TextEditingController teacherLoginPasswordController;
+  bool teacherLoginPasswordVisibility;
   final formKey1 = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -28,12 +28,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   void initState() {
     super.initState();
-    adminLoginEmailController1 = TextEditingController();
+    adminLoginEmailController = TextEditingController();
     adminLoginPasswordController = TextEditingController();
     adminLoginPasswordVisibility = false;
-    adminLoginEmailController2 = TextEditingController();
-    adminLoginEmailController3 = TextEditingController();
-    adminLoginEmailVisibility = false;
+    teacherLoginEmailController = TextEditingController();
+    teacherLoginPasswordController = TextEditingController();
+    teacherLoginPasswordVisibility = false;
   }
 
   @override
@@ -138,20 +138,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     .fromSTEB(0, 30, 0, 0),
                                                 child: TextFormField(
                                                   controller:
-                                                      adminLoginEmailController1,
+                                                      adminLoginEmailController,
                                                   onChanged: (_) =>
                                                       EasyDebounce.debounce(
-                                                    'adminLoginEmailController1',
+                                                    'adminLoginEmailController',
                                                     Duration(
                                                         milliseconds: 2000),
                                                     () => setState(() {}),
                                                   ),
-                                                  autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'Email Address',
                                                     enabledBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -162,7 +161,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               5),
                                                     ),
                                                     focusedBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -199,7 +198,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   decoration: InputDecoration(
                                                     labelText: 'Password',
                                                     enabledBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -210,7 +209,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               5),
                                                     ),
                                                     focusedBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -261,13 +260,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   onPressed: () async {
                                                     Future Function()
                                                         _navigate = () async {};
-                                                    if ((adminLoginEmailController3
+                                                    if ((teacherLoginPasswordController
                                                             .text) ==
                                                         'william@alldayenglish.academy') {
                                                       final user =
                                                           await signInWithEmail(
                                                         context,
-                                                        adminLoginEmailController1
+                                                        adminLoginEmailController
                                                             .text,
                                                         adminLoginPasswordController
                                                             .text,
@@ -358,24 +357,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     .fromSTEB(0, 30, 0, 0),
                                                 child: TextFormField(
                                                   controller:
-                                                      adminLoginEmailController2,
+                                                      teacherLoginEmailController,
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'Email Address',
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color:
-                                                              Color(0xFF052948),
-                                                          fontSize: 22,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
                                                     enabledBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -393,7 +381,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       ),
                                                     ),
                                                     focusedBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -442,16 +430,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     .fromSTEB(0, 25, 0, 0),
                                                 child: TextFormField(
                                                   controller:
-                                                      adminLoginEmailController3,
+                                                      teacherLoginPasswordController,
                                                   onChanged: (_) =>
                                                       EasyDebounce.debounce(
-                                                    'adminLoginEmailController3',
+                                                    'teacherLoginPasswordController',
                                                     Duration(
                                                         milliseconds: 2000),
                                                     () => setState(() {}),
                                                   ),
                                                   obscureText:
-                                                      !adminLoginEmailVisibility,
+                                                      !teacherLoginPasswordVisibility,
                                                   decoration: InputDecoration(
                                                     labelText: 'Password',
                                                     labelStyle: FlutterFlowTheme
@@ -466,7 +454,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                               FontWeight.normal,
                                                         ),
                                                     enabledBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -484,7 +472,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       ),
                                                     ),
                                                     focusedBorder:
-                                                        UnderlineInputBorder(
+                                                        OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             Color(0x80052948),
@@ -503,13 +491,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     ),
                                                     suffixIcon: InkWell(
                                                       onTap: () => setState(
-                                                        () => adminLoginEmailVisibility =
-                                                            !adminLoginEmailVisibility,
+                                                        () => teacherLoginPasswordVisibility =
+                                                            !teacherLoginPasswordVisibility,
                                                       ),
                                                       focusNode: FocusNode(
                                                           skipTraversal: true),
                                                       child: Icon(
-                                                        adminLoginEmailVisibility
+                                                        teacherLoginPasswordVisibility
                                                             ? Icons
                                                                 .visibility_outlined
                                                             : Icons
@@ -538,7 +526,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     .fromSTEB(0, 25, 0, 0),
                                                 child: FFButtonWidget(
                                                   onPressed: () {
-                                                    print('Button pressed ...');
+                                                    print(
+                                                        'TeacherLoginBtn pressed ...');
                                                   },
                                                   text: 'Login',
                                                   options: FFButtonOptions(

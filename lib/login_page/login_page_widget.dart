@@ -121,7 +121,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       Form(
                                         key: formKey2,
                                         autovalidateMode:
-                                            AutovalidateMode.disabled,
+                                            AutovalidateMode.always,
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -149,6 +149,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'Email Address',
+                                                    hintText: 'Email Address',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -185,6 +186,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       ),
                                                   keyboardType: TextInputType
                                                       .emailAddress,
+                                                  validator: (val) {
+                                                    if (val == null ||
+                                                        val.isEmpty) {
+                                                      return 'Field is required';
+                                                    }
+
+                                                    return null;
+                                                  },
                                                 ),
                                               ),
                                               Padding(
@@ -197,6 +206,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       !adminLoginPasswordVisibility,
                                                   decoration: InputDecoration(
                                                     labelText: 'Password',
+                                                    hintText: 'Password',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(

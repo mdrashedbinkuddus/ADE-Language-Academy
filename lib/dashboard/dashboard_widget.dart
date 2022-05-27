@@ -20,7 +20,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: isAndroid
+      appBar: !(isAndroid)
           ? AppBar(
               backgroundColor: Color(0xFF052948),
               automaticallyImplyLeading: false,

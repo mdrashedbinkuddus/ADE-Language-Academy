@@ -365,60 +365,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                 0, 25, 0, 0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        Future Function()
-                                                            _navigate =
-                                                            () async {};
-                                                        if ((adminLoginEmailController2
-                                                                .text) ==
-                                                            'william@alldayenglish.academy') {
-                                                          final user =
-                                                              await signInWithEmail(
-                                                            context,
-                                                            adminLoginEmailController1
-                                                                .text,
-                                                            adminLoginPasswordController1
-                                                                .text,
-                                                          );
-                                                          if (user == null) {
-                                                            return;
-                                                          }
-
-                                                          _navigate = () =>
-                                                              Navigator
-                                                                  .pushAndRemoveUntil(
-                                                                context,
-                                                                MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
-                                                                          DashboardWidget(),
-                                                                ),
-                                                                (r) => false,
-                                                              );
-                                                        } else {
-                                                          await showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (alertDialogContext) {
-                                                              return AlertDialog(
-                                                                title: Text(
-                                                                    'You are not admin!!!'),
-                                                                content: Text(
-                                                                    'This login form is for only admin'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Nevermind'),
-                                                                  ),
-                                                                ],
-                                                              );
-                                                            },
-                                                          );
+                                                        final user =
+                                                            await signInWithEmail(
+                                                          context,
+                                                          adminLoginEmailController1
+                                                              .text,
+                                                          adminLoginPasswordController1
+                                                              .text,
+                                                        );
+                                                        if (user == null) {
+                                                          return;
                                                         }
 
-                                                        await _navigate();
+                                                        await Navigator
+                                                            .pushAndRemoveUntil(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                DashboardWidget(),
+                                                          ),
+                                                          (r) => false,
+                                                        );
                                                       },
                                                       text: 'Login',
                                                       options: FFButtonOptions(

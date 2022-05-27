@@ -121,7 +121,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       Form(
                                         key: formKey2,
                                         autovalidateMode:
-                                            AutovalidateMode.always,
+                                            AutovalidateMode.disabled,
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -139,17 +139,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 child: TextFormField(
                                                   controller:
                                                       adminLoginEmailController,
-                                                  onChanged: (_) =>
-                                                      EasyDebounce.debounce(
-                                                    'adminLoginEmailController',
-                                                    Duration(
-                                                        milliseconds: 2000),
-                                                    () => setState(() {}),
-                                                  ),
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'Email Address',
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                     hintText: 'Email Address',
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -172,6 +187,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           BorderRadius.circular(
                                                               5),
                                                     ),
+                                                    contentPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 20, 20),
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -186,14 +205,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       ),
                                                   keyboardType: TextInputType
                                                       .emailAddress,
-                                                  validator: (val) {
-                                                    if (val == null ||
-                                                        val.isEmpty) {
-                                                      return 'Field is required';
-                                                    }
-
-                                                    return null;
-                                                  },
                                                 ),
                                               ),
                                               Padding(
@@ -206,7 +217,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       !adminLoginPasswordVisibility,
                                                   decoration: InputDecoration(
                                                     labelText: 'Password',
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                     hintText: 'Password',
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -229,6 +262,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           BorderRadius.circular(
                                                               5),
                                                     ),
+                                                    contentPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 20, 20),
                                                     suffixIcon: InkWell(
                                                       onTap: () => setState(
                                                         () => adminLoginPasswordVisibility =
@@ -259,6 +296,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
+                                                  textAlign: TextAlign.start,
                                                   keyboardType: TextInputType
                                                       .visiblePassword,
                                                 ),
@@ -352,7 +390,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       Form(
                                         key: formKey1,
                                         autovalidateMode:
-                                            AutovalidateMode.always,
+                                            AutovalidateMode.disabled,
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -368,7 +406,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 child: TextFormField(
                                                   controller:
                                                       teacherLoginEmailController,
-                                                  autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'Email Address',
@@ -380,15 +417,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         width: 2,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              5),
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
@@ -398,16 +428,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         width: 2,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              5),
                                                     ),
+                                                    contentPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 20, 20),
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -420,19 +447,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       ),
                                                   keyboardType: TextInputType
                                                       .emailAddress,
-                                                  validator: (val) {
-                                                    if (val == null ||
-                                                        val.isEmpty) {
-                                                      return 'Field is required';
-                                                    }
-
-                                                    if (!RegExp(
-                                                            kTextValidatorEmailRegex)
-                                                        .hasMatch(val)) {
-                                                      return 'Has to be a valid email address.';
-                                                    }
-                                                    return null;
-                                                  },
                                                 ),
                                               ),
                                               Padding(
@@ -471,15 +485,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         width: 2,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              5),
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
@@ -489,16 +496,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                         width: 2,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              5),
                                                     ),
+                                                    contentPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                20, 20, 20, 20),
                                                     suffixIcon: InkWell(
                                                       onTap: () => setState(
                                                         () => teacherLoginPasswordVisibility =

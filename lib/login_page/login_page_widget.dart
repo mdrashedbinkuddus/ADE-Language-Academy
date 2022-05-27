@@ -3,7 +3,6 @@ import '../dashboard/dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -308,7 +307,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   onPressed: () async {
                                                     Future Function()
                                                         _navigate = () async {};
-                                                    if ((teacherLoginPasswordController
+                                                    if ((adminLoginEmailController
                                                             .text) ==
                                                         'william@alldayenglish.academy') {
                                                       final user =
@@ -397,6 +396,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   50, 30, 50, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.end,
                                             children: [
@@ -409,6 +410,29 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'Email Address',
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    hintText: 'Email Address',
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -441,6 +465,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            Color(0xFF052948),
                                                         fontSize: 22,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -451,22 +477,27 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 25, 0, 0),
+                                                    .fromSTEB(0, 30, 0, 0),
                                                 child: TextFormField(
                                                   controller:
                                                       teacherLoginPasswordController,
-                                                  onChanged: (_) =>
-                                                      EasyDebounce.debounce(
-                                                    'teacherLoginPasswordController',
-                                                    Duration(
-                                                        milliseconds: 2000),
-                                                    () => setState(() {}),
-                                                  ),
                                                   obscureText:
                                                       !teacherLoginPasswordVisibility,
                                                   decoration: InputDecoration(
                                                     labelText: 'Password',
                                                     labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    hintText: 'Password',
+                                                    hintStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyText1
                                                         .override(
@@ -517,7 +548,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             : Icons
                                                                 .visibility_off_outlined,
                                                         color:
-                                                            Color(0xFF757575),
+                                                            Color(0xFF052948),
                                                         size: 22,
                                                       ),
                                                     ),
@@ -527,10 +558,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Roboto',
+                                                        color:
+                                                            Color(0xFF052948),
                                                         fontSize: 22,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
+                                                  textAlign: TextAlign.start,
                                                   keyboardType: TextInputType
                                                       .visiblePassword,
                                                 ),
@@ -541,7 +575,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 child: FFButtonWidget(
                                                   onPressed: () {
                                                     print(
-                                                        'TeacherLoginBtn pressed ...');
+                                                        'TLoginBtn pressed ...');
                                                   },
                                                   text: 'Login',
                                                   options: FFButtonOptions(

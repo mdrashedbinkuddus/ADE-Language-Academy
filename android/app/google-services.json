@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "125344447787",
+    "project_id": "ade-language-academy",
+    "storage_bucket": "ade-language-academy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125344447787:android:1c49f07993be23d9bf996e",
+        "android_client_info": {
+          "package_name": "co.uk.alldayenglish.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125344447787-d6scjrrtjj7t3pbhna89fvvo905ls56r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.uk.alldayenglish.admin",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "125344447787-120ajdibpk3g7e2jc957d70fkes36463.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmBIPHXBUhiWmlNEAmPZZ9FZt7IYhujmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125344447787-120ajdibpk3g7e2jc957d70fkes36463.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "125344447787-9edda81trsn6vg0tl7manlnvuds8r3qa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.uk.alldayenglish.admin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

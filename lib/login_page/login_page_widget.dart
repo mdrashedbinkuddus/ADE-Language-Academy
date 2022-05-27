@@ -81,7 +81,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.2, 0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(200, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(180, 0, 0, 0),
                     child: Container(
                       width: 530,
                       height: 642,

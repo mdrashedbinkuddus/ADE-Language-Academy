@@ -18,9 +18,34 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Color(0xFF052948),
+        automaticallyImplyLeading: false,
+        leading: InkWell(
+          onTap: () async {
+            scaffoldKey.currentState.openDrawer();
+          },
+          child: Icon(
+            Icons.menu_rounded,
+            color: FlutterFlowTheme.of(context).primaryBtnText,
+            size: 26,
+          ),
+        ),
+        title: Text(
+          'Dashboaed',
+          style: FlutterFlowTheme.of(context).title3.override(
+                fontFamily: 'Poppins',
+                color: FlutterFlowTheme.of(context).primaryBtnText,
+                fontWeight: FontWeight.w500,
+              ),
+        ),
+        actions: [],
+        centerTitle: false,
+        elevation: 0,
+      ),
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       drawer: Container(
-        width: 450,
+        width: MediaQuery.of(context).size.width * 0.8,
         child: Drawer(
           elevation: 0,
           child: Container(
@@ -34,15 +59,35 @@ class _DashboardWidgetState extends State<DashboardWidget> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
+                  padding: EdgeInsetsDirectional.fromSTEB(30, 50, 0, 3),
                   child: Text(
                     'All Day English',
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryBtnText,
-                          fontSize: 40,
+                          fontSize: 35,
+                          fontWeight: FontWeight.w500,
                         ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
+                  child: ListTile(
+                    title: Text(
+                      'Dashoard',
+                      style: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                          ),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                      size: 20,
+                    ),
+                    tileColor: Color(0xFFF5F5F5),
+                    dense: false,
                   ),
                 ),
                 Spacer(),
@@ -53,7 +98,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   text: 'Logout',
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 80,
+                    height: 50,
                     color: Color(0x58084478),
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Roboto',

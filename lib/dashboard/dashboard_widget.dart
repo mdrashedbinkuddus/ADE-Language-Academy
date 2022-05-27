@@ -1,9 +1,7 @@
-import '../auth/auth_util.dart';
-import '../backend/stripe/payment_manager.dart';
+import '../components/cutome_card_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,8 +14,6 @@ class DashboardWidget extends StatefulWidget {
 
 class _DashboardWidgetState extends State<DashboardWidget>
     with TickerProviderStateMixin {
-  String paymentId;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
       curve: Curves.easeIn,
@@ -36,6 +32,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
       ),
     ),
   };
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -311,60 +308,82 @@ class _DashboardWidgetState extends State<DashboardWidget>
                       ),
                     ),
                   Expanded(
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBtnText,
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            final paymentResponse = await processStripePayment(
-                              amount: 2250,
-                              currency: 'GBP',
-                              customerEmail: currentUserEmail,
-                              customerName: valueOrDefault<String>(
-                                currentUserDisplayName,
-                                'Testing From Flutter',
-                              ),
-                              description: 'Teacher 1',
-                              allowGooglePay: true,
-                              allowApplePay: false,
-                            );
-                            if (paymentResponse.paymentId == null) {
-                              if (paymentResponse.errorMessage != null) {
-                                showSnackbar(
-                                  context,
-                                  'Error: ${paymentResponse.errorMessage}',
-                                );
-                              }
-                              return;
-                            }
-                            paymentId = paymentResponse.paymentId;
-
-                            setState(() {});
-                          },
-                          text: 'Button',
-                          options: FFButtonOptions(
-                            width: 130,
-                            height: 40,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                    ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 30, 0, 0),
+                            child: Text(
+                              'Dashboard',
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 30,
+                                  ),
                             ),
-                            borderRadius: 12,
                           ),
-                        ),
-                      ).animated(
-                          [animationsMap['containerOnPageLoadAnimation']]),
-                    ),
+                          Expanded(
+                            child: Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 35, 0, 0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 148,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                      ),
+                                      child: ListView(
+                                        padding: EdgeInsets.zero,
+                                        primary: false,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 30, 0),
+                                            child: CutomeCardWidget(),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 30, 0),
+                                            child: CutomeCardWidget(),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 30, 0),
+                                            child: CutomeCardWidget(),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ).animated([animationsMap['containerOnPageLoadAnimation']]),
                   ),
                 ],
               ),

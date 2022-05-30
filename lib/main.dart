@@ -69,13 +69,12 @@ class _MyAppState extends State<MyApp> {
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
           ? Container(
-              color: FlutterFlowTheme.of(context).primaryBtnText,
+              color: Colors.transparent,
               child: Center(
                 child: Builder(
                   builder: (context) => Image.asset(
-                    'assets/images/ADE-Logo.svg',
+                    'assets/images/ADE-Logo.png',
                     width: MediaQuery.of(context).size.width * 0.8,
-                    height: double.infinity,
                     fit: BoxFit.fill,
                   ),
                 ),

@@ -56,10 +56,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    width: 250,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF052948),
+                  if (isWeb ?? true)
+                    Container(
+                      width: 250,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF052948),
+                      ),
+                    ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFEEEEEE),
+                      ),
                     ),
                   ),
                 ],

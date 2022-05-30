@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                   builder: (context) => Image.asset(
                     'assets/images/ADE-Logo.png',
                     width: MediaQuery.of(context).size.width * 0.8,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),

@@ -1,3 +1,6 @@
+import '../components/amount_paid_widget.dart';
+import '../components/cutome_card_widget.dart';
+import '../components/invoice_due_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -50,28 +53,63 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       body: SafeArea(
         child: Stack(
           children: [
-            Align(
-              alignment: AlignmentDirectional(0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (isWeb ?? true)
-                    Container(
-                      width: 250,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF052948),
-                      ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (isWeb ?? true)
+                  Container(
+                    width: 280,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF052948),
                     ),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFEEEEEE),
+                  ),
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            height: 220,
+                            decoration: BoxDecoration(),
+                            child: ListView(
+                              padding: EdgeInsets.zero,
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      50, 50, 50, 50),
+                                  child: CutomeCardWidget(),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 50, 50, 50),
+                                  child: AmountPaidWidget(),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 50, 0, 50),
+                                  child: InvoiceDueWidget(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

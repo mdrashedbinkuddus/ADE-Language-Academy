@@ -6,6 +6,7 @@ import '../login_page/login_page_widget.dart';
 import '../students/students_widget.dart';
 import '../support/support_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 

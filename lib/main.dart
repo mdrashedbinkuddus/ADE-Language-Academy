@@ -7,6 +7,7 @@ import 'auth/firebase_user_provider.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'index.dart';
 
 import 'backend/stripe/payment_manager.dart';
@@ -14,7 +15,6 @@ import 'backend/stripe/payment_manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await FlutterFlowTheme.initialize();
 
   await initializeStripe();
   runApp(MyApp());
@@ -31,7 +31,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = ThemeMode.system;
 
   Stream<ADELanguageAcademyFirebaseUser> userStream;
   ADELanguageAcademyFirebaseUser initialUser;
@@ -51,7 +51,6 @@ class _MyAppState extends State<MyApp> {
   void setLocale(Locale value) => setState(() => _locale = value);
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -67,15 +66,18 @@ class _MyAppState extends State<MyApp> {
       locale: _locale,
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
-          ? Center(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: CircularProgressIndicator(
-                  color: FlutterFlowTheme.of(context).primaryColor,
+          ? Container(
+              color: FlutterFlowTheme.of(context).primaryBtnText,
+              child: Center(
+                child: Builder(
+                  builder: (context) => Image.asset(
+                    'assets/images/ADE-Logo.svg',
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: double.infinity,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             )

@@ -31,6 +31,7 @@ dependencies:
   firebase_auth: 3.2.0
   firebase_core: 1.12.0
   firebase_core_web: 1.5.4
+  flutter_spinkit: 4.1.2+1
   flutter_stripe: 2.4.0
   font_awesome_flutter: 10.1.0
   google_fonts: 2.2.0
@@ -57,9 +58,18 @@ dependency_overrides:
   stripe_android: 2.4.0
 
 dev_dependencies:
+  flutter_launcher_icons: 0.9.2
 
   flutter_test:
     sdk: flutter
+
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: 'assets/images/app_launcher_icon.png'
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

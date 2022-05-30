@@ -86,101 +86,145 @@ class _TeachesWidgetState extends State<TeachesWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Icon(
-                      Icons.dashboard_rounded,
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
-                      size: 28,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                      child: Text(
-                        'Dashboard',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Roboto',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                            ),
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DashboardWidget(),
                       ),
-                    ),
-                  ],
+                      (r) => false,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.dashboard_rounded,
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        size: 28,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        child: Text(
+                          'Dashboard',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.chalkboardTeacher,
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
-                      size: 22,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                      child: Text(
-                        'Teachers',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Roboto',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                            ),
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TeachesWidget(),
                       ),
-                    ),
-                  ],
+                      (r) => false,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.chalkboardTeacher,
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        size: 22,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        child: Text(
+                          'Teachers',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.userGraduate,
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
-                      size: 22,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                      child: Text(
-                        'Students',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Roboto',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                            ),
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StudentsWidget(),
                       ),
-                    ),
-                  ],
+                      (r) => false,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.userGraduate,
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        size: 26,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        child: Text(
+                          'Students',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SupportWidget(),
+                      ),
+                      (r) => false,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.support_rounded,
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        size: 26,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        child: Text(
+                          'Help & Support',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Spacer(),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Icon(
-                      Icons.support_rounded,
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
-                      size: 26,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                      child: Text(
-                        'Help & Support',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Roboto',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 25),
                 child: InkWell(

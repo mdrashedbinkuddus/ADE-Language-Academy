@@ -316,8 +316,11 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                               onTap: () async {
                                 await Navigator.pushAndRemoveUntil(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => DashboardWidget(),
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                    reverseDuration: Duration(milliseconds: 0),
+                                    child: DashboardWidget(),
                                   ),
                                   (r) => false,
                                 );
@@ -356,8 +359,11 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                               onTap: () async {
                                 await Navigator.pushAndRemoveUntil(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => TeachesWidget(),
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                    reverseDuration: Duration(milliseconds: 0),
+                                    child: TeachesWidget(),
                                   ),
                                   (r) => false,
                                 );
@@ -396,8 +402,11 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                               onTap: () async {
                                 await Navigator.pushAndRemoveUntil(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => StudentsWidget(),
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                    reverseDuration: Duration(milliseconds: 0),
+                                    child: StudentsWidget(),
                                   ),
                                   (r) => false,
                                 );
@@ -436,8 +445,11 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                               onTap: () async {
                                 await Navigator.pushAndRemoveUntil(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SupportWidget(),
+                                  PageTransition(
+                                    type: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                    reverseDuration: Duration(milliseconds: 0),
+                                    child: SupportWidget(),
                                   ),
                                   (r) => false,
                                 );

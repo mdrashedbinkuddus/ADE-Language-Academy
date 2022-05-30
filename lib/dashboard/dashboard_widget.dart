@@ -27,14 +27,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ? AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primaryColor,
               automaticallyImplyLeading: false,
-              leading: InkWell(
-                onTap: () async {
-                  scaffoldKey.currentState.openDrawer();
-                },
-                child: Icon(
-                  Icons.menu_rounded,
-                  color: FlutterFlowTheme.of(context).primaryBtnText,
-                  size: 28,
+              leading: Visibility(
+                visible: responsiveVisibility(
+                  context: context,
+                  desktop: false,
+                ),
+                child: InkWell(
+                  onTap: () async {
+                    scaffoldKey.currentState.openDrawer();
+                  },
+                  child: Icon(
+                    Icons.menu_rounded,
+                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                    size: 28,
+                  ),
                 ),
               ),
               title: Text(
@@ -192,157 +198,65 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         ),
       ),
       body: SafeArea(
-        child: Stack(
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (responsiveVisibility(
-                  context: context,
-                  phone: false,
-                  tablet: false,
-                  tabletLandscape: false,
-                ))
-                  Container(
-                    width: 280,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF052948),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                          child: Text(
-                            'All Day English',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Roboto',
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBtnText,
-                                  fontSize: 30,
-                                ),
-                          ),
-                        ),
-                        Divider(
-                          height: 50,
-                          thickness: 1,
-                          color: FlutterFlowTheme.of(context).lineColor,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.dashboard_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                size: 28,
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                                child: Text(
-                                  'Dashboard',
-                                  style: FlutterFlowTheme.of(context)
-                                      .title2
-                                      .override(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Stack(
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (responsiveVisibility(
+                    context: context,
+                    phone: false,
+                    tablet: false,
+                    tabletLandscape: false,
+                  ))
+                    Container(
+                      width: 280,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF052948),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                            child: Text(
+                              'All Day English',
+                              textAlign: TextAlign.center,
+                              style:
+                                  FlutterFlowTheme.of(context).title1.override(
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
+                                        fontSize: 30,
                                       ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              FaIcon(
-                                FontAwesomeIcons.chalkboardTeacher,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                size: 22,
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                                child: Text(
-                                  'Teachers',
-                                  style: FlutterFlowTheme.of(context)
-                                      .title2
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                      ),
-                                ),
-                              ),
-                            ],
+                          Divider(
+                            height: 50,
+                            thickness: 1,
+                            color: FlutterFlowTheme.of(context).lineColor,
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              FaIcon(
-                                FontAwesomeIcons.userGraduate,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                size: 22,
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                                child: Text(
-                                  'Students',
-                                  style: FlutterFlowTheme.of(context)
-                                      .title2
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Spacer(),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(30, 25, 0, 25),
-                          child: InkWell(
-                            onTap: () async {
-                              await signOut();
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginPageWidget(),
-                                ),
-                                (r) => false,
-                              );
-                            },
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Icon(
-                                  Icons.logout,
+                                  Icons.dashboard_rounded,
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBtnText,
-                                  size: 22,
+                                  size: 28,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20, 0, 0, 0),
                                   child: Text(
-                                    'Logout',
+                                    'Dashboard',
                                     style: FlutterFlowTheme.of(context)
                                         .title2
                                         .override(
@@ -355,58 +269,260 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
-                    ),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 220,
-                            decoration: BoxDecoration(),
-                            child: ListView(
-                              padding: EdgeInsets.zero,
-                              primary: false,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 30, 20, 50),
-                                  child: CutomeCardWidget(),
+                                FaIcon(
+                                  FontAwesomeIcons.chalkboardTeacher,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  size: 22,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 30, 20, 50),
-                                  child: AmountPaidWidget(),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 30, 0, 50),
-                                  child: InvoiceDueWidget(),
+                                      20, 0, 0, 0),
+                                  child: Text(
+                                    'Teachers',
+                                    style: FlutterFlowTheme.of(context)
+                                        .title2
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                        ),
+                                  ),
                                 ),
                               ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.userGraduate,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  size: 22,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20, 0, 0, 0),
+                                  child: Text(
+                                    'Students',
+                                    style: FlutterFlowTheme.of(context)
+                                        .title2
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(30, 25, 0, 25),
+                            child: InkWell(
+                              onTap: () async {
+                                await signOut();
+                                await Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginPageWidget(),
+                                  ),
+                                  (r) => false,
+                                );
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    Icons.logout,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                    size: 22,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 0, 0),
+                                    child: Text(
+                                      'Logout',
+                                      style: FlutterFlowTheme.of(context)
+                                          .title2
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBtnText,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 220,
+                              decoration: BoxDecoration(),
+                              child: ListView(
+                                padding: EdgeInsets.zero,
+                                primary: false,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 30, 20, 50),
+                                    child: CutomeCardWidget(),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 30, 20, 50),
+                                    child: AmountPaidWidget(),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 30, 20, 50),
+                                    child: InvoiceDueWidget(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Divider(
+                              height: 10,
+                              thickness: 2,
+                              indent: 20,
+                              color: Color(0x80052948),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20, 40, 20, 20),
+                              child: Text(
+                                'Last 10 Transactions',
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFF052948),
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+                              child: Container(
+                                height: MediaQuery.of(context).size.height * 1,
+                                decoration: BoxDecoration(),
+                                child: ListView(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF052948),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20, 0, 0, 0),
+                                            child: Text(
+                                              'Date',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                      ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    60, 0, 0, 0),
+                                            child: Text(
+                                              'Client',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title3
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                      ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    60, 0, 20, 0),
+                                            child: Text(
+                                              'Amount',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title3
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

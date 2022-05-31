@@ -1,7 +1,9 @@
 import '../auth/auth_util.dart';
+import '../components/add_teacher_widget.dart';
 import '../dashboard/dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login_page/login_page_widget.dart';
 import '../students/students_widget.dart';
 import '../support/support_widget.dart';
@@ -57,6 +59,31 @@ class _TeachesWidgetState extends State<TeachesWidget> {
             )
           : null,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      floatingActionButton: Visibility(
+        visible: !(isWeb) ?? true,
+        child: FloatingActionButton(
+          onPressed: () async {
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              context: context,
+              builder: (context) {
+                return Padding(
+                  padding: MediaQuery.of(context).viewInsets,
+                  child: AddTeacherWidget(),
+                );
+              },
+            );
+          },
+          backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+          elevation: 2,
+          child: Icon(
+            Icons.person_add,
+            color: FlutterFlowTheme.of(context).primaryBtnText,
+            size: 26,
+          ),
+        ),
+      ),
       drawer: Drawer(
         elevation: 16,
         child: Container(
@@ -532,6 +559,131 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                       height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBtnText,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if ((isWeb ?? true) ||
+                              responsiveVisibility(
+                                context: context,
+                                phone: false,
+                              ))
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20, 20, 20, 20),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Teachers',
+                                    style: FlutterFlowTheme.of(context).title1,
+                                  ),
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.of(context)
+                                                .viewInsets,
+                                            child: AddTeacherWidget(),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    text: 'Add Teacher',
+                                    options: FFButtonOptions(
+                                      width: 130,
+                                      height: 40,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.white,
+                                          ),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
+                                      ),
+                                      borderRadius: 5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                            child: Wrap(
+                              spacing: 15,
+                              runSpacing: 15,
+                              alignment: WrapAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.start,
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.start,
+                              verticalDirection: VerticalDirection.down,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Material(
+                                  color: Colors.transparent,
+                                  elevation: 2,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Container(
+                                    width: 180,
+                                    height: 180,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF052948),
+                                      borderRadius: BorderRadius.circular(5),
+                                      shape: BoxShape.rectangle,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: Image.network(
+                                            'https://picsum.photos/seed/897/600',
+                                            width: 80,
+                                            height: 80,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 10, 0, 0),
+                                          child: Text(
+                                            'Teacher Jade',
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBtnText,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

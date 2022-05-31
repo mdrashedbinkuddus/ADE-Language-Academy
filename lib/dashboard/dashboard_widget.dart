@@ -540,6 +540,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            if (responsiveVisibility(
+                              context: context,
+                              phone: false,
+                            ))
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 20, 20, 0),
+                                child: Text(
+                                  'Dashboard',
+                                  style: FlutterFlowTheme.of(context).title1,
+                                ),
+                              ),
                             Container(
                               width: double.infinity,
                               height: 220,

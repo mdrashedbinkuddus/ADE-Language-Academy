@@ -40,8 +40,8 @@ class _AddTeacherWidgetState extends State<AddTeacherWidget> {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Container(
-          width: double.infinity,
-          height: double.infinity,
+          width: 320,
+          height: 560,
           constraints: BoxConstraints(
             maxWidth: 400,
             maxHeight: 600,

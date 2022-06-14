@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? DashboardWidget()
+              ? TDashboardWidget()
               : LoginPageWidget(),
     );
   }

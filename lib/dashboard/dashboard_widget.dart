@@ -535,239 +535,219 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBtnText,
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            if (responsiveVisibility(
-                              context: context,
-                              phone: false,
-                            ))
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 20, 20, 0),
-                                child: Text(
-                                  'Dashboard',
-                                  style: FlutterFlowTheme.of(context).title1,
-                                ),
-                              ),
-                            Container(
-                              width: double.infinity,
-                              height: 220,
-                              decoration: BoxDecoration(),
-                              child: ListView(
-                                padding: EdgeInsets.zero,
-                                primary: false,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 30, 20, 50),
-                                    child: CutomeCardWidget(),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 30, 20, 50),
-                                    child: AmountPaidWidget(),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 30, 20, 50),
-                                    child: InvoiceDueWidget(),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Divider(
-                              height: 10,
-                              thickness: 2,
-                              indent: 20,
-                              color: Color(0x80052948),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20, 40, 20, 20),
-                              child: Text(
-                                'Last 10 Transactions',
-                                style: FlutterFlowTheme.of(context)
-                                    .title2
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF052948),
-                                    ),
-                              ),
-                            ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (responsiveVisibility(
+                            context: context,
+                            phone: false,
+                          ))
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
-                              child: Container(
-                                height: MediaQuery.of(context).size.height * 1,
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    Container(
-                                      height: 50,
-                                      decoration: BoxDecoration(
+                                  EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                              child: Text(
+                                'Dashboard',
+                                style: FlutterFlowTheme.of(context).title1,
+                              ),
+                            ),
+                          Container(
+                            width: double.infinity,
+                            height: 220,
+                            decoration: BoxDecoration(),
+                            child: ListView(
+                              padding: EdgeInsets.zero,
+                              primary: false,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20, 30, 20, 50),
+                                  child: CutomeCardWidget(),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 30, 20, 50),
+                                  child: AmountPaidWidget(),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 30, 20, 50),
+                                  child: InvoiceDueWidget(),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            thickness: 2,
+                            indent: 20,
+                            color: Color(0x80052948),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 40, 20, 20),
+                            child: Text(
+                              'Last 10 Transactions',
+                              style:
+                                  FlutterFlowTheme.of(context).title2.override(
+                                        fontFamily: 'Roboto',
                                         color: Color(0xFF052948),
                                       ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20, 0, 0, 0),
-                                            child: Text(
-                                              'Date',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle1
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    60, 0, 0, 0),
-                                            child: Text(
-                                              'Client',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    60, 0, 20, 0),
-                                            child: Text(
-                                              'Amount',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 1,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Container(
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF052948),
                                     ),
-                                    ListView(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 5, 0, 0),
-                                          child: Container(
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFEEEEEE),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 5, 0, 5),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                20, 0, 0, 0),
-                                                    child: Text(
-                                                      'Date',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .subtitle1
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: Colors.black,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                60, 0, 0, 0),
-                                                    child: Text(
-                                                      'Client',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .title3
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: Colors.black,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                60, 0, 20, 0),
-                                                    child: Text(
-                                                      'Amount',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .title3
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            color: Colors.black,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
+                                                  20, 0, 0, 0),
+                                          child: Text(
+                                            'Date',
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle1
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBtnText,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  60, 0, 0, 0),
+                                          child: Text(
+                                            'Client',
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBtnText,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  60, 0, 20, 0),
+                                          child: Text(
+                                            'Amount',
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBtnText,
+                                                ),
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  ListView(
+                                    padding: EdgeInsets.zero,
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 5, 0, 0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFEEEEEE),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 5, 0, 5),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(20, 0, 0, 0),
+                                                  child: Text(
+                                                    'Date',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .subtitle1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(60, 0, 0, 0),
+                                                  child: Text(
+                                                    'Client',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .title3
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(60, 0, 20, 0),
+                                                  child: Text(
+                                                    'Amount',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .title3
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

@@ -3,6 +3,7 @@ import '../dashboard/dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../t_dashboard/t_dashboard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,7 +72,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               if (responsiveVisibility(
                 context: context,
@@ -79,619 +80,585 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 tablet: false,
                 tabletLandscape: false,
               ))
-                Align(
-                  alignment: AlignmentDirectional(0.2, 0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(180, 0, 0, 0),
-                    child: Container(
-                      width: 530,
-                      height: 642,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                            child: Text(
-                              'All Day English',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Color(0xFF052948),
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
+                  child: Container(
+                    width: 530,
+                    height: 642,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                          child: Text(
+                            'All Day English',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Roboto',
+                                      color: Color(0xFF052948),
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 50, 20, 0),
-                              child: DefaultTabController(
-                                length: 2,
-                                initialIndex: 0,
-                                child: Column(
-                                  children: [
-                                    TabBar(
-                                      labelColor: Color(0xFF052948),
-                                      unselectedLabelColor: Color(0xFF052948),
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                      indicatorColor: Color(0xFF052948),
-                                      indicatorWeight: 2,
-                                      tabs: [
-                                        Tab(
-                                          text: 'Admin',
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 50, 20, 0),
+                            child: DefaultTabController(
+                              length: 2,
+                              initialIndex: 0,
+                              child: Column(
+                                children: [
+                                  TabBar(
+                                    labelColor: Color(0xFF052948),
+                                    unselectedLabelColor: Color(0xFF052948),
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                        Tab(
-                                          text: 'Teacher',
+                                    indicatorColor: Color(0xFF052948),
+                                    indicatorWeight: 2,
+                                    tabs: [
+                                      Tab(
+                                        text: 'Admin',
+                                      ),
+                                      Tab(
+                                        text: 'Teacher',
+                                      ),
+                                    ],
+                                  ),
+                                  Expanded(
+                                    child: TabBarView(
+                                      children: [
+                                        Form(
+                                          key: formKey4,
+                                          autovalidateMode:
+                                              AutovalidateMode.disabled,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    50, 30, 50, 0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 30, 0, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        adminLoginEmailController1,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Email Address',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      hintText: 'Email Address',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 20,
+                                                                  20, 20),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    keyboardType: TextInputType
+                                                        .emailAddress,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 30, 0, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        adminLoginPasswordController1,
+                                                    obscureText:
+                                                        !adminLoginPasswordVisibility1,
+                                                    decoration: InputDecoration(
+                                                      labelText: 'Password',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      hintText: 'Password',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 20,
+                                                                  20, 20),
+                                                      suffixIcon: InkWell(
+                                                        onTap: () => setState(
+                                                          () => adminLoginPasswordVisibility1 =
+                                                              !adminLoginPasswordVisibility1,
+                                                        ),
+                                                        focusNode: FocusNode(
+                                                            skipTraversal:
+                                                                true),
+                                                        child: Icon(
+                                                          adminLoginPasswordVisibility1
+                                                              ? Icons
+                                                                  .visibility_outlined
+                                                              : Icons
+                                                                  .visibility_off_outlined,
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          size: 22,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    textAlign: TextAlign.start,
+                                                    keyboardType: TextInputType
+                                                        .visiblePassword,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 25, 0, 0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      final user =
+                                                          await signInWithEmail(
+                                                        context,
+                                                        adminLoginEmailController1
+                                                            .text,
+                                                        adminLoginPasswordController1
+                                                            .text,
+                                                      );
+                                                      if (user == null) {
+                                                        return;
+                                                      }
+
+                                                      await Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              DashboardWidget(),
+                                                        ),
+                                                      );
+                                                    },
+                                                    text: 'Login',
+                                                    options: FFButtonOptions(
+                                                      width: 200,
+                                                      height: 60,
+                                                      color: Color(0xFF052948),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      elevation: 3,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 0,
+                                                      ),
+                                                      borderRadius: 5,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Form(
+                                          key: formKey3,
+                                          autovalidateMode:
+                                              AutovalidateMode.disabled,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    50, 30, 50, 0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 30, 0, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        teacherLoginEmailController1,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Email Address',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      hintText: 'Email Address',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 20,
+                                                                  20, 20),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    keyboardType: TextInputType
+                                                        .emailAddress,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 30, 0, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        teacherLoginPasswordController1,
+                                                    obscureText:
+                                                        !teacherLoginPasswordVisibility1,
+                                                    decoration: InputDecoration(
+                                                      labelText: 'Password',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      hintText: 'Password',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 20,
+                                                                  20, 20),
+                                                      suffixIcon: InkWell(
+                                                        onTap: () => setState(
+                                                          () => teacherLoginPasswordVisibility1 =
+                                                              !teacherLoginPasswordVisibility1,
+                                                        ),
+                                                        focusNode: FocusNode(
+                                                            skipTraversal:
+                                                                true),
+                                                        child: Icon(
+                                                          teacherLoginPasswordVisibility1
+                                                              ? Icons
+                                                                  .visibility_outlined
+                                                              : Icons
+                                                                  .visibility_off_outlined,
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          size: 22,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    textAlign: TextAlign.start,
+                                                    keyboardType: TextInputType
+                                                        .visiblePassword,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 25, 0, 0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      final user =
+                                                          await signInWithEmail(
+                                                        context,
+                                                        teacherLoginEmailController1
+                                                            .text,
+                                                        teacherLoginPasswordController1
+                                                            .text,
+                                                      );
+                                                      if (user == null) {
+                                                        return;
+                                                      }
+
+                                                      await Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              TDashboardWidget(),
+                                                        ),
+                                                      );
+                                                    },
+                                                    text: 'Login',
+                                                    options: FFButtonOptions(
+                                                      width: 200,
+                                                      height: 60,
+                                                      color: Color(0xFF052948),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      elevation: 3,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 0,
+                                                      ),
+                                                      borderRadius: 5,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
-                                    Expanded(
-                                      child: TabBarView(
-                                        children: [
-                                          Form(
-                                            key: formKey4,
-                                            autovalidateMode:
-                                                AutovalidateMode.disabled,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(50, 30, 50, 0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 30, 0, 0),
-                                                    child: TextFormField(
-                                                      controller:
-                                                          adminLoginEmailController1,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelText:
-                                                            'Email Address',
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        hintText:
-                                                            'Email Address',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        contentPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(20,
-                                                                    20, 20, 20),
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Color(
-                                                                    0xFF052948),
-                                                                fontSize: 22,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                      keyboardType:
-                                                          TextInputType
-                                                              .emailAddress,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 30, 0, 0),
-                                                    child: TextFormField(
-                                                      controller:
-                                                          adminLoginPasswordController1,
-                                                      obscureText:
-                                                          !adminLoginPasswordVisibility1,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelText: 'Password',
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        hintText: 'Password',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        contentPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(20,
-                                                                    20, 20, 20),
-                                                        suffixIcon: InkWell(
-                                                          onTap: () => setState(
-                                                            () => adminLoginPasswordVisibility1 =
-                                                                !adminLoginPasswordVisibility1,
-                                                          ),
-                                                          focusNode: FocusNode(
-                                                              skipTraversal:
-                                                                  true),
-                                                          child: Icon(
-                                                            adminLoginPasswordVisibility1
-                                                                ? Icons
-                                                                    .visibility_outlined
-                                                                : Icons
-                                                                    .visibility_off_outlined,
-                                                            color: Color(
-                                                                0xFF052948),
-                                                            size: 22,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Color(
-                                                                    0xFF052948),
-                                                                fontSize: 22,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      keyboardType:
-                                                          TextInputType
-                                                              .visiblePassword,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 25, 0, 0),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () async {
-                                                        final user =
-                                                            await signInWithEmail(
-                                                          context,
-                                                          adminLoginEmailController1
-                                                              .text,
-                                                          adminLoginPasswordController1
-                                                              .text,
-                                                        );
-                                                        if (user == null) {
-                                                          return;
-                                                        }
-
-                                                        await Navigator
-                                                            .pushAndRemoveUntil(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                DashboardWidget(),
-                                                          ),
-                                                          (r) => false,
-                                                        );
-                                                      },
-                                                      text: 'Login',
-                                                      options: FFButtonOptions(
-                                                        width: 200,
-                                                        height: 60,
-                                                        color:
-                                                            Color(0xFF052948),
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .subtitle2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        elevation: 3,
-                                                        borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 0,
-                                                        ),
-                                                        borderRadius: 5,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Form(
-                                            key: formKey3,
-                                            autovalidateMode:
-                                                AutovalidateMode.disabled,
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(50, 30, 50, 0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 30, 0, 0),
-                                                    child: TextFormField(
-                                                      controller:
-                                                          teacherLoginEmailController1,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelText:
-                                                            'Email Address',
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        hintText:
-                                                            'Email Address',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        contentPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(20,
-                                                                    20, 20, 20),
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Color(
-                                                                    0xFF052948),
-                                                                fontSize: 22,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                      keyboardType:
-                                                          TextInputType
-                                                              .emailAddress,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 30, 0, 0),
-                                                    child: TextFormField(
-                                                      controller:
-                                                          teacherLoginPasswordController1,
-                                                      obscureText:
-                                                          !teacherLoginPasswordVisibility1,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelText: 'Password',
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        hintText: 'Password',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Color(
-                                                                      0xFF052948),
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x80052948),
-                                                            width: 2,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(5),
-                                                        ),
-                                                        contentPadding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(20,
-                                                                    20, 20, 20),
-                                                        suffixIcon: InkWell(
-                                                          onTap: () => setState(
-                                                            () => teacherLoginPasswordVisibility1 =
-                                                                !teacherLoginPasswordVisibility1,
-                                                          ),
-                                                          focusNode: FocusNode(
-                                                              skipTraversal:
-                                                                  true),
-                                                          child: Icon(
-                                                            teacherLoginPasswordVisibility1
-                                                                ? Icons
-                                                                    .visibility_outlined
-                                                                : Icons
-                                                                    .visibility_off_outlined,
-                                                            color: Color(
-                                                                0xFF052948),
-                                                            size: 22,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: Color(
-                                                                    0xFF052948),
-                                                                fontSize: 22,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      keyboardType:
-                                                          TextInputType
-                                                              .visiblePassword,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 25, 0, 0),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () {
-                                                        print(
-                                                            'TLoginBtn pressed ...');
-                                                      },
-                                                      text: 'Login',
-                                                      options: FFButtonOptions(
-                                                        width: 200,
-                                                        height: 60,
-                                                        color:
-                                                            Color(0xFF052948),
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .subtitle2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize: 22,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                        elevation: 3,
-                                                        borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent,
-                                                          width: 0,
-                                                        ),
-                                                        borderRadius: 5,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -970,7 +937,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             context,
                                                             MaterialPageRoute(
                                                               builder: (context) =>
-                                                                  DashboardWidget(),
+                                                                  TDashboardWidget(),
                                                             ),
                                                             (r) => false,
                                                           );
@@ -1215,9 +1182,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 25, 0, 0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print(
-                                                        'TLoginBtn pressed ...');
+                                                  onPressed: () async {
+                                                    final user =
+                                                        await signInWithEmail(
+                                                      context,
+                                                      teacherLoginEmailController1
+                                                          .text,
+                                                      teacherLoginPasswordController1
+                                                          .text,
+                                                    );
+                                                    if (user == null) {
+                                                      return;
+                                                    }
+
+                                                    await Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            TDashboardWidget(),
+                                                      ),
+                                                    );
                                                   },
                                                   text: 'Login',
                                                   options: FFButtonOptions(
@@ -1258,13 +1242,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ],
                   ),
                 ),
-              if (responsiveVisibility(
-                context: context,
-                phone: false,
-                tablet: false,
-                tabletLandscape: false,
-              ))
-                Spacer(),
             ],
           ),
         ),

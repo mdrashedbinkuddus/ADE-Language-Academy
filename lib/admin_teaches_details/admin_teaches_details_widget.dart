@@ -1,23 +1,29 @@
 import '../auth/auth_util.dart';
+import '../components/add_teacher_widget.dart';
 import '../dashboard/dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_video_player.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login_page/login_page_widget.dart';
+import '../students/students_widget.dart';
 import '../support/support_widget.dart';
 import '../teaches/teaches_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class StudentsWidget extends StatefulWidget {
-  const StudentsWidget({Key key}) : super(key: key);
+class AdminTeachesDetailsWidget extends StatefulWidget {
+  const AdminTeachesDetailsWidget({Key key}) : super(key: key);
 
   @override
-  _StudentsWidgetState createState() => _StudentsWidgetState();
+  _AdminTeachesDetailsWidgetState createState() =>
+      _AdminTeachesDetailsWidgetState();
 }
 
-class _StudentsWidgetState extends State<StudentsWidget> {
+class _AdminTeachesDetailsWidgetState extends State<AdminTeachesDetailsWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -45,7 +51,7 @@ class _StudentsWidgetState extends State<StudentsWidget> {
                 ),
               ),
               title: Text(
-                'Students',
+                'Teachers',
                 style: FlutterFlowTheme.of(context).title1.override(
                       fontFamily: 'Roboto',
                       color: FlutterFlowTheme.of(context).primaryBtnText,
@@ -60,6 +66,8 @@ class _StudentsWidgetState extends State<StudentsWidget> {
       drawer: Drawer(
         elevation: 16,
         child: Container(
+          width: 100,
+          height: 100,
           decoration: BoxDecoration(
             color: Color(0xFF052948),
           ),
@@ -535,131 +543,125 @@ class _StudentsWidgetState extends State<StudentsWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Text(
-                              'Students List',
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).title1,
-                            ),
-                            Divider(
-                              height: 20,
-                              thickness: 1,
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                            ),
-                            Expanded(
-                              child: ListView(
-                                padding: EdgeInsets.zero,
-                                scrollDirection: Axis.vertical,
+                            if ((isWeb ?? true) ||
+                                responsiveVisibility(
+                                  context: context,
+                                  phone: false,
+                                ))
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.05,
-                                        height: 35,
+                                        width: 100,
+                                        height: 100,
+                                        clipBehavior: Clip.antiAlias,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFEEEEEE),
+                                          shape: BoxShape.circle,
                                         ),
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          'Id',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/6/600',
                                         ),
                                       ),
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
-                                        height: 35,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFEEEEEE),
-                                        ),
-                                        alignment: AlignmentDirectional(0, 0),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10, 0, 0, 0),
                                         child: Text(
-                                          'Name',
+                                          'Teacher Name',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.15,
-                                        height: 35,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFEEEEEE),
-                                        ),
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          'Total Student',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .title1,
                                         ),
                                       ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 5, 0, 0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.05,
-                                          height: 35,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFEEEEEE),
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.of(context)
+                                                .viewInsets,
+                                            child: Container(
+                                              height: 560,
+                                              child: AddTeacherWidget(),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    text: 'Edit Teacher',
+                                    options: FFButtonOptions(
+                                      width: 130,
+                                      height: 40,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: Colors.white,
                                           ),
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Text(
-                                            'Id',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ),
-                                        Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.15,
-                                          height: 35,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFEEEEEE),
-                                          ),
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Text(
-                                            'Name',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ),
-                                        Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.15,
-                                          height: 35,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFEEEEEE),
-                                          ),
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Text(
-                                            'Total Student',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ),
-                                      ],
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
+                                      ),
+                                      borderRadius: 5,
                                     ),
                                   ),
                                 ],
+                              ),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                                child: Wrap(
+                                  spacing: 0,
+                                  runSpacing: 0,
+                                  alignment: WrapAlignment.spaceBetween,
+                                  crossAxisAlignment: WrapCrossAlignment.start,
+                                  direction: Axis.horizontal,
+                                  runAlignment: WrapAlignment.start,
+                                  verticalDirection: VerticalDirection.down,
+                                  clipBehavior: Clip.antiAlias,
+                                  children: [
+                                    Container(
+                                      width: 500,
+                                      height: 250,
+                                      decoration: BoxDecoration(),
+                                      child: AutoSizeText(
+                                        'My name is Jon Kocjan, and I’m from the United States. I completed a TEFL program with the International TEFL Academy based in Chicago, USA. I’ve been in Cairo now for six years teaching, and have worked at language centers, schools, and have given private group lessons too. I’ve primarily taught Egyptians (both kids and adults)but I have also taught other nationalities too. I have taught on various platforms online so I have a good amount of knowledge when it comes to the technical side of the industry. I love meeting and helping people and looking forward to seeing you in the lesson.',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 25,
+                                            ),
+                                      ),
+                                    ),
+                                    FlutterFlowVideoPlayer(
+                                      path:
+                                          'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                                      videoType: VideoType.network,
+                                      width: 350,
+                                      autoPlay: false,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

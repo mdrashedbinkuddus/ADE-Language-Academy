@@ -1,3 +1,4 @@
+import '../admin_teaches_details/admin_teaches_details_widget.dart';
 import '../auth/auth_util.dart';
 import '../components/add_teacher_widget.dart';
 import '../dashboard/dashboard_widget.dart';
@@ -70,7 +71,10 @@ class _TeachesWidgetState extends State<TeachesWidget> {
               builder: (context) {
                 return Padding(
                   padding: MediaQuery.of(context).viewInsets,
-                  child: AddTeacherWidget(),
+                  child: Container(
+                    height: 560,
+                    child: AddTeacherWidget(),
+                  ),
                 );
               },
             );
@@ -591,7 +595,10 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                                           return Padding(
                                             padding: MediaQuery.of(context)
                                                 .viewInsets,
-                                            child: AddTeacherWidget(),
+                                            child: Container(
+                                              height: 560,
+                                              child: AddTeacherWidget(),
+                                            ),
                                           );
                                         },
                                       );
@@ -631,52 +638,68 @@ class _TeachesWidgetState extends State<TeachesWidget> {
                               verticalDirection: VerticalDirection.down,
                               clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 2,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: Container(
-                                    width: 180,
-                                    height: 180,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF052948),
+                                InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      PageTransition(
+                                        type: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
+                                        reverseDuration:
+                                            Duration(milliseconds: 0),
+                                        child: AdminTeachesDetailsWidget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 2,
+                                    shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5),
-                                      shape: BoxShape.rectangle,
                                     ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://picsum.photos/seed/897/600',
-                                            width: 80,
-                                            height: 80,
-                                            fit: BoxFit.cover,
+                                    child: Container(
+                                      width: 180,
+                                      height: 180,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF052948),
+                                        borderRadius: BorderRadius.circular(5),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/897/600',
+                                              width: 80,
+                                              height: 80,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 0),
-                                          child: Text(
-                                            'Teacher Jade',
-                                            style: FlutterFlowTheme.of(context)
-                                                .title3
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBtnText,
-                                                ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 10, 0, 0),
+                                            child: Text(
+                                              'Teacher Jade',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title3
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                      ),
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

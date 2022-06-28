@@ -8,3 +8,8 @@ export 't_dashboard/t_dashboard_widget.dart' show TDashboardWidget;
 export 'teacher_setting/teacher_setting_widget.dart' show TeacherSettingWidget;
 export 'admin_teaches_details/admin_teaches_details_widget.dart'
     show AdminTeachesDetailsWidget;
+export 'staff_home_page/staff_home_page_widget.dart' show StaffHomePageWidget;
+export 'lesson/lesson_widget.dart' show LessonWidget;
+export 'admin_staff_list/admin_staff_list_widget.dart'
+    show AdminStaffListWidget;
+export 'add_staff/add_staff_widget.dart' show AddStaffWidget;

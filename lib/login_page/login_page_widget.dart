@@ -3,6 +3,7 @@ import '../dashboard/dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../staff_home_page/staff_home_page_widget.dart';
 import '../t_dashboard/t_dashboard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -28,6 +29,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   TextEditingController teacherLoginEmailController2;
   TextEditingController teacherLoginPasswordController2;
   bool teacherLoginPasswordVisibility2;
+  TextEditingController sLoginEmailController;
+  TextEditingController sLoginPasswordController;
+  bool sLoginPasswordVisibility;
   final formKey1 = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
   final formKey3 = GlobalKey<FormState>();
@@ -49,6 +53,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     teacherLoginEmailController2 = TextEditingController();
     teacherLoginPasswordController2 = TextEditingController();
     teacherLoginPasswordVisibility2 = false;
+    sLoginEmailController = TextEditingController();
+    sLoginPasswordController = TextEditingController();
+    sLoginPasswordVisibility = false;
   }
 
   @override
@@ -72,7 +79,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (responsiveVisibility(
                 context: context,
@@ -698,7 +705,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           padding:
                               EdgeInsetsDirectional.fromSTEB(20, 50, 20, 0),
                           child: DefaultTabController(
-                            length: 2,
+                            length: 3,
                             initialIndex: 0,
                             child: Column(
                               children: [
@@ -709,7 +716,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Roboto',
-                                        fontSize: 25,
+                                        fontSize: 18,
                                         fontWeight: FontWeight.w500,
                                       ),
                                   indicatorColor: Color(0xFF052948),
@@ -720,6 +727,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     ),
                                     Tab(
                                       text: 'Teacher',
+                                    ),
+                                    Tab(
+                                      text: 'Staff',
                                     ),
                                   ],
                                 ),
@@ -914,33 +924,30 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     .fromSTEB(0, 25, 0, 0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
-                                                    Future Function()
-                                                        _navigate = () async {};
-                                                    if ((adminLoginEmailController2
-                                                            .text) ==
-                                                        'william@alldayenglish.academy') {
-                                                      final user =
-                                                          await signInWithEmail(
-                                                        context,
-                                                        adminLoginEmailController2
-                                                            .text,
-                                                        adminLoginPasswordController2
-                                                            .text,
-                                                      );
-                                                      if (user == null) {
-                                                        return;
-                                                      }
+                                                    final user =
+                                                        await signInWithEmail(
+                                                      context,
+                                                      adminLoginEmailController1
+                                                          .text,
+                                                      adminLoginPasswordController1
+                                                          .text,
+                                                    );
+                                                    if (user == null) {
+                                                      return;
+                                                    }
 
-                                                      _navigate = () =>
-                                                          Navigator
-                                                              .pushAndRemoveUntil(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  TDashboardWidget(),
-                                                            ),
-                                                            (r) => false,
-                                                          );
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.rule,
+                                                            '')) ==
+                                                        'Admin') {
+                                                      await Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              DashboardWidget(),
+                                                        ),
+                                                      );
                                                     } else {
                                                       await showDialog(
                                                         context: context,
@@ -948,24 +955,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                             (alertDialogContext) {
                                                           return AlertDialog(
                                                             title: Text(
-                                                                'You are not admin!!!'),
+                                                                'Only Admin'),
                                                             content: Text(
-                                                                'This login form is for only admin'),
+                                                                'You are not admin. Try again'),
                                                             actions: [
                                                               TextButton(
                                                                 onPressed: () =>
                                                                     Navigator.pop(
                                                                         alertDialogContext),
-                                                                child: Text(
-                                                                    'Nevermind'),
+                                                                child:
+                                                                    Text('Ok'),
                                                               ),
                                                             ],
                                                           );
                                                         },
                                                       );
                                                     }
-
-                                                    await _navigate();
                                                   },
                                                   text: 'Login',
                                                   options: FFButtonOptions(
@@ -1195,13 +1200,42 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       return;
                                                     }
 
-                                                    await Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            TDashboardWidget(),
-                                                      ),
-                                                    );
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.rule,
+                                                            '')) ==
+                                                        'Teacher') {
+                                                      await Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              TDashboardWidget(),
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Not Teacher'),
+                                                            content: Text(
+                                                                'You are not a teacher at ADE. Please contact william. Thanks'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      );
+                                                      return;
+                                                    }
                                                   },
                                                   text: 'Login',
                                                   options: FFButtonOptions(
@@ -1230,6 +1264,278 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             ],
                                           ),
                                         ),
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 30, 0, 0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 30, 0, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        sLoginEmailController,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Email Address',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      hintText: 'Email Address',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 20,
+                                                                  20, 20),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    keyboardType: TextInputType
+                                                        .emailAddress,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 30, 0, 0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        sLoginPasswordController,
+                                                    obscureText:
+                                                        !sLoginPasswordVisibility,
+                                                    decoration: InputDecoration(
+                                                      labelText: 'Password',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      hintText: 'Password',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Color(
+                                                                    0xFF052948),
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color:
+                                                              Color(0x80052948),
+                                                          width: 2,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(20, 20,
+                                                                  20, 20),
+                                                      suffixIcon: InkWell(
+                                                        onTap: () => setState(
+                                                          () => sLoginPasswordVisibility =
+                                                              !sLoginPasswordVisibility,
+                                                        ),
+                                                        focusNode: FocusNode(
+                                                            skipTraversal:
+                                                                true),
+                                                        child: Icon(
+                                                          sLoginPasswordVisibility
+                                                              ? Icons
+                                                                  .visibility_outlined
+                                                              : Icons
+                                                                  .visibility_off_outlined,
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          size: 22,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color:
+                                                              Color(0xFF052948),
+                                                          fontSize: 22,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                    textAlign: TextAlign.start,
+                                                    keyboardType: TextInputType
+                                                        .visiblePassword,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 25, 0, 0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.rule,
+                                                              '')) ==
+                                                          'Staff') {
+                                                        await Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                StaffHomePageWidget(),
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              title: Text(
+                                                                  'Not a Staff'),
+                                                              content: Text(
+                                                                  'Do you really work with us? Try again. Thanks'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        );
+                                                        return;
+                                                      }
+                                                    },
+                                                    text: 'Login',
+                                                    options: FFButtonOptions(
+                                                      width: 200,
+                                                      height: 60,
+                                                      color: Color(0xFF052948),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 22,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      elevation: 3,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 0,
+                                                      ),
+                                                      borderRadius: 5,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),

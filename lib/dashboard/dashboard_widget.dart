@@ -200,6 +200,41 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     await Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
+                        builder: (context) => StudentsWidget(),
+                      ),
+                      (r) => false,
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.work_rounded,
+                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        size: 26,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        child: Text(
+                          'Staffs',
+                          style: FlutterFlowTheme.of(context).title2.override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(30, 25, 0, 0),
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
                         builder: (context) => SupportWidget(),
                       ),
                       (r) => false,

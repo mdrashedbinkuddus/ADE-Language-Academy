@@ -123,112 +123,122 @@ class _StaffHomePageWidgetState extends State<StaffHomePageWidget>
                       ],
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(12),
-                            bottomRight: Radius.circular(0),
-                            topLeft: Radius.circular(12),
-                            topRight: Radius.circular(0),
+                    child: InkWell(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LessonWidget(),
                           ),
-                          child: Image.asset(
-                            'assets/images/background-big-home.png',
-                            width: 120,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-0.9, 0.85),
-                          child: Container(
-                            width: 32,
-                            height: 32,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 4,
-                                  color: Color(0x230E151B),
-                                  offset: Offset(0, 2),
-                                )
-                              ],
-                              shape: BoxShape.circle,
+                        );
+                      },
+                      child: Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(0),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(0),
                             ),
-                            child: Icon(
-                              Icons.play_arrow_rounded,
-                              color: Color(0xFF101213),
-                              size: 20,
+                            child: Image.asset(
+                              'assets/images/background-big-home.png',
+                              width: 120,
+                              height: 100,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(130, 0, 12, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Learn the basics',
-                                style: FlutterFlowTheme.of(context)
-                                    .subtitle1
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF101213),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.9, 0.85),
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 4,
+                                    color: Color(0x230E151B),
+                                    offset: Offset(0, 2),
+                                  )
+                                ],
+                                shape: BoxShape.circle,
                               ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 4, 0, 4),
-                                child: Text(
-                                  '4 Min',
+                              child: Icon(
+                                Icons.play_arrow_rounded,
+                                color: Color(0xFF101213),
+                                size: 20,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(130, 0, 12, 0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Learn the basics',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .subtitle1
                                       .override(
                                         fontFamily: 'Outfit',
-                                        color: Color(0xFF57636C),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
+                                        color: Color(0xFF101213),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                 ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(40),
-                                    child: Image.asset(
-                                      'assets/images/company-logo.png',
-                                      width: 32,
-                                      height: 32,
-                                      fit: BoxFit.cover,
-                                    ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 4, 0, 4),
+                                  child: Text(
+                                    '4 Min',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText2
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: Color(0xFF57636C),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 0, 0),
-                                    child: Text(
-                                      'All Day English Team',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Outfit',
-                                            color: Color(0xFF4B39EF),
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                          ),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Image.asset(
+                                        'assets/images/company-logo.png',
+                                        width: 32,
+                                        height: 32,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8, 0, 0, 0),
+                                      child: Text(
+                                        'All Day English Team',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              color: Color(0xFF4B39EF),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ).animated([animationsMap['containerOnPageLoadAnimation1']]),

@@ -3,7 +3,7 @@ import '../dashboard/dashboard_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../staff_home_page/staff_home_page_widget.dart';
+import '../staff_dashboard/staff_dashboard_widget.dart';
 import '../t_dashboard/t_dashboard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -1475,7 +1475,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                           context,
                                                           MaterialPageRoute(
                                                             builder: (context) =>
-                                                                StaffHomePageWidget(),
+                                                                StaffDashboardWidget(),
                                                           ),
                                                         );
                                                       } else {

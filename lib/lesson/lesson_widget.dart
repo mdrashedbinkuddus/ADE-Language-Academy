@@ -21,16 +21,16 @@ class _LessonWidgetState extends State<LessonWidget> {
       key: scaffoldKey,
       appBar: AppBar(
         backgroundColor: Color(0xFF052948),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: Text(
-          'Page Title',
+          'Marketing Lesson',
           style: GoogleFonts.getFont(
             'Roboto',
             color: Colors.white,
           ),
         ),
         actions: [],
-        centerTitle: false,
+        centerTitle: true,
         elevation: 0,
       ),
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

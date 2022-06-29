@@ -121,18 +121,26 @@ class _AddStaffWidgetState extends State<AddStaffWidget> {
                         child: Stack(
                           alignment: AlignmentDirectional(0, 0),
                           children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                              child: Container(
-                                width: 120,
-                                height: 120,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.network(
-                                  uploadedFileUrl,
+                            Container(
+                              width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF05355F),
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                child: Container(
+                                  width: 120,
+                                  height: 120,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    uploadedFileUrl,
+                                  ),
                                 ),
                               ),
                             ),
